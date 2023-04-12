@@ -1,0 +1,35 @@
+import React from 'react'
+
+const FormField = ({labelName, placeholder, inputType,value,handleChange,isTextArea}) => {
+  return (
+    <label className='flex-1 w-full flex flex-col'>
+        {labelName && (
+            <span className='font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]'>{labelName}</span>
+        )}
+
+
+ {/* <input type={inputType} placeholder={placeholder} value={value} label={labelName} /> */}
+ {/* <textarea name={labelName}  cols="30" rows="10"></textarea> */}
+        {isTextArea?
+        (<textarea 
+            required
+            value={value}
+            name={labelName}   
+            rows={10}
+            placeholder={placeholder} 
+            onChange={handleChange}
+            className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] placeholder:text-[#4b5264] rounded-[0px] sm:min-w-[300px]"
+        
+        ></textarea>) :
+        (<input required onChange={handleChange} type={inputType} placeholder={placeholder} value={value} label={labelName} 
+        step="0.1"
+        className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] placeholder:text-[#4b5264] rounded-[0px] sm:min-w-[300px]"
+        />)
+    }
+
+    </label>
+   
+  )
+}
+
+export default FormField
